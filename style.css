@@ -1,0 +1,95 @@
+body {
+    text-align: center;
+    color: rgb(185, 201, 215);
+    background-color: rgb(42, 42, 42);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin-top: 30px;
+    column-gap: 5px;
+}
+
+.btn {
+    height: 280px;
+    width: 280px;
+    border: solid black 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition:all 100ms ease;
+    background:rgba(20,20,20,1);
+    font-size: 0.1px;
+
+}
+.red {
+    background:rgb(255,0,0);
+    border-radius: 100% 0 0 0  ;
+}
+.yellow {
+    background:rgb(255,255,0);
+    margin-top: 5px;
+    border-radius: 0 0 0 100%  ;
+}
+.green {
+    background:rgb(0,255,0);
+    border-radius: 0 100% 0 0 ;
+}
+.blue {
+    background:rgb(0,0,255);
+    margin-top: 5px;
+    border-radius: 0 0 100% 0 ;
+}
+.cen-div {
+    background-color: black;
+    border-radius: 100%;
+    height: 250px;
+    width: 250px;
+    color: aliceblue;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    cursor: pointer;
+    border: 5px solid greenyellow;
+}
+
+.cen-div:active {
+    transition: all ease 0.6s;
+    transform: scale(0.8);
+    border: 8px solid greenyellow;
+}
+
+
+.red:active {
+    transform: scale(0.9);
+    opacity: 1;
+}
+.yellow:active {
+    transform: scale(0.9);
+    opacity: 1;
+}
+.green:active {
+    transform: scale(0.9);
+    opacity: 1;
+}
+.blue:active {
+    transform: scale(0.9);
+    opacity: 1;
+}
+/* .red:hover{opacity: 0.7;}
+.yellow:hover{opacity: 0.7;}
+.green:hover{opacity: 0.7;}
+.blue:hover{opacity: 0.7;} */
+
+.flash{
+    transform: scale(0.97);
+    opacity: 1;
+}
+.BgFlash{
+    background-color: red;
+}
