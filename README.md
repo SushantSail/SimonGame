@@ -9,3 +9,5 @@ This is an interactive Simon Game written in VanillaJS/CSS/HTML to simulate the 
 <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
 </div>
 
+## Screenshot-
+![image](https://github.com/SushantSail/SimonGame/blob/main/Images/GameSS.PNG)
