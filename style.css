@@ -92,8 +92,8 @@ body {
 }
 
 .flash {
-    transform: scale(0.97);
-    opacity: 1;
+    transform: scale(0.97) !important;
+    opacity: 1 !important;
 }
 
 .BgFlash {
@@ -108,7 +108,6 @@ body {
         height: 35vw; /* Adjust for smaller screens */
         width: 35vw;
         touch-action: manipulation;
-
     }
 
     .cen-div {
