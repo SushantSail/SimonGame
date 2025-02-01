@@ -36,7 +36,6 @@ body {
     transition: all 100ms ease;
     background: rgba(20, 20, 20, 1);
     font-size: 0.1px;
-    touch-action: manipulation;
 }
 
 .red {
@@ -107,7 +106,6 @@ body {
     .btn {
         height: 35vw; /* Adjust for smaller screens */
         width: 35vw;
-        touch-action: manipulation;
     }
 
     .cen-div {
