@@ -2,51 +2,69 @@ body {
     text-align: center;
     color: rgb(185, 201, 215);
     background-color: rgb(42, 42, 42);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .btn-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     position: relative;
     align-items: center;
     margin-top: 30px;
-    column-gap: 5px;
+    gap: 5px;
 }
 
 .btn {
-    height: 280px;
-    width: 280px;
+    height: 20vw; /* Responsive height */
+    width: 20vw; /* Responsive width */
+    max-height: 280px; /* Max height */
+    max-width: 280px; /* Max width */
     border: solid black 5px;
     cursor: pointer;
     opacity: 0.5;
-    transition:all 100ms ease;
-    background:rgba(20,20,20,1);
+    transition: all 100ms ease;
+    background: rgba(20, 20, 20, 1);
     font-size: 0.1px;
+}
 
-}
 .red {
-    background:rgb(255,0,0);
-    border-radius: 100% 0 0 0  ;
+    background: rgb(255, 0, 0);
+    border-radius: 100% 0 0 0;
 }
+
 .yellow {
-    background:rgb(255,255,0);
-    margin-top: 5px;
-    border-radius: 0 0 0 100%  ;
+    background: rgb(255, 255, 0);
+    border-radius: 0 0 0 100%;
 }
+
 .green {
-    background:rgb(0,255,0);
-    border-radius: 0 100% 0 0 ;
+    background: rgb(0, 255, 0);
+    border-radius: 0 100% 0 0;
 }
+
 .blue {
-    background:rgb(0,0,255);
-    margin-top: 5px;
-    border-radius: 0 0 100% 0 ;
+    background: rgb(0, 0, 255);
+    border-radius: 0 0 100% 0;
 }
+
 .cen-div {
     background-color: black;
     border-radius: 100%;
-    height: 250px;
-    width: 250px;
+    height: 15vw; /* Responsive height */
+    width: 15vw; /* Responsive width */
+    max-height: 250px; /* Max height */
+    max-width: 250px; /* Max width */
     color: aliceblue;
     position: absolute;
     z-index: 10;
@@ -64,32 +82,32 @@ body {
     border: 8px solid greenyellow;
 }
 
-
-.red:active {
-    transform: scale(0.9);
-    opacity: 1;
-}
-.yellow:active {
-    transform: scale(0.9);
-    opacity: 1;
-}
-.green:active {
-    transform: scale(0.9);
-    opacity: 1;
-}
+.red:active,
+.yellow:active,
+.green:active,
 .blue:active {
     transform: scale(0.9);
     opacity: 1;
 }
-/* .red:hover{opacity: 0.7;}
-.yellow:hover{opacity: 0.7;}
-.green:hover{opacity: 0.7;}
-.blue:hover{opacity: 0.7;} */
 
-.flash{
+.flash {
     transform: scale(0.97);
     opacity: 1;
 }
-.BgFlash{
+
+.BgFlash {
     background-color: red;
+}
+
+@media (max-width: 600px) {
+    .btn {
+        height: 35vw; /* Adjust for smaller screens */
+        width: 35vw;
+    }
+
+    .cen-div {
+        height: 25vw; /* Adjust for smaller screens */
+        width: 25vw;
+        font-size: 20px;
+    }
 }
