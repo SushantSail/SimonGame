@@ -26,10 +26,10 @@ body {
 }
 
 .btn {
-    height: 20vw; /* Responsive height */
-    width: 20vw; /* Responsive width */
-    max-height: 280px; /* Max height */
-    max-width: 280px; /* Max width */
+    height: 20vw; 
+    width: 20vw; 
+    max-height: 280px; 
+    max-width: 280px; 
     border: solid black 5px;
     cursor: pointer;
     opacity: 0.5;
@@ -61,10 +61,10 @@ body {
 .cen-div {
     background-color: black;
     border-radius: 100%;
-    height: 15vw; /* Responsive height */
-    width: 15vw; /* Responsive width */
-    max-height: 250px; /* Max height */
-    max-width: 250px; /* Max width */
+    height: 15vw; 
+    width: 15vw; 
+    max-height: 250px; 
+    max-width: 250px; 
     color: aliceblue;
     position: absolute;
     z-index: 10;
@@ -103,6 +103,7 @@ body {
     .btn {
         height: 35vw; /* Adjust for smaller screens */
         width: 35vw;
+        margin-top: -100px;
     }
 
     .cen-div {
