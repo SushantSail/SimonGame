@@ -95,18 +95,13 @@ function checkAns(idx){
 }
 
 // Checked which button pressed by user.
-function btnPress(){
-    let btn=this;
-    // console.log(btn);
-    let bn =btns[btn.innerText-1]
-    // console.log(`User pressed ${bn} button`);
-
-    // userColor = btn.getAttribute("id");
-    // console.log(userColor);
+function btnPress() {
+    let btn = this;
+    console.log(`Button pressed: ${btn.innerText}`); // Log the button pressed
+    let bn = btns[btn.innerText - 1];
     userSeq.push(bn);
-    // console.log(userSeq);
-
-    checkAns(userSeq.length-1);
+    console.log(userSeq);
+    checkAns(userSeq.length - 1);
 }
 
 
@@ -119,6 +114,8 @@ function reset(){
 
 // Add lisstern over all btn having class btn
 let allBtns = document.querySelectorAll(".btn");
-for (btn of allBtns){
-    btn.addEventListener("click",btnPress);
+for (btn of allBtns) {
+    btn.addEventListener("click", btnPress);
+    btn.addEventListener("touchstart", btnPress); 
+    btn.addEventListener("pointerdown", btnPress); 
 }
