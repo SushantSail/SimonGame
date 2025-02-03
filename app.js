@@ -22,32 +22,41 @@ startBtn.addEventListener("click",function(){
 });
 
 // Add a class flass to button which was trigged by levelUp function
-function btnFlash(btn){
-btn.classList.add("flash");
-setTimeout(function(){
-    btn.classList.remove("flash");
-},500);
+function btnPress(){
+    event.preventDefault();
+    if (this.disabled) return;  // Prevent touch if buttons are disabled during sequence flash
+
+    let btn = this;
+    let bn = btns[btn.innerText - 1];
+    userSeq.push(bn);
+    checkAns(userSeq.length - 1);
 }
 
 function flashSequence(){
-  let i=0;
-  const interval=setInterval(function(){
-    const color = gameSeq[i];
-    const btn =document.querySelector(`.${color}`);
-    btnFlash(btn);
-    i++;
-    if(i>= gameSeq.length){
-      clearInterval(interval);
-    }
-  },600);
+    let i=0;
+    // Disable button interactions during the flashing
+    allBtns.forEach(btn => btn.disabled = true);
+    const interval = setInterval(function(){
+        const color = gameSeq[i];
+        const btn = document.querySelector(`.${color}`);
+        btnFlash(btn);
+        i++;
+        if(i >= gameSeq.length){
+            clearInterval(interval);
+            // Re-enable button interactions after flashing
+            allBtns.forEach(btn => btn.disabled = false);
+        }
+    }, 600);
 }
+
 
 // Trigreed the random colour and pass in btnFlash function
 function levelUp(){
   userSeq=[];
 level++
 h2.innerText =`Level ${level}`;
-startBtn.innerText=`Level ${level}`;
+    startBtn.innerText = `Level ${level}`; // Update this during level-up.
+
 
 let randIdx =Math.floor(Math.random()*3);
 let randColor =btns[randIdx];
@@ -90,18 +99,25 @@ function checkAns(idx){
     }
     backgroundFlash();
     startBtn.innerText="START";
+      
     reset();
   }
 }
 
 // Checked which button pressed by user.
-function btnPress() {
-    let btn = this;
-    console.log(`Button pressed: ${btn.innerText}`); // Log the button pressed
-    let bn = btns[btn.innerText - 1];
+function btnPress(){
+      event.preventDefault();
+    let btn=this;
+    // console.log(btn);
+    let bn =btns[btn.innerText-1]
+    // console.log(`User pressed ${bn} button`);
+
+    // userColor = btn.getAttribute("id");
+    // console.log(userColor);
     userSeq.push(bn);
-    console.log(userSeq);
-    checkAns(userSeq.length - 1);
+    // console.log(userSeq);
+
+    checkAns(userSeq.length-1);
 }
 
 
@@ -112,10 +128,17 @@ function reset(){
   level = 0;
 }
 
-// Add lisstern over all btn having class btn
+// Add listern over all btn having class btn
+let isTouchDevice  ="onTouchstart" in window || navigator.maxTouchPoints > 0;
+
 let allBtns = document.querySelectorAll(".btn");
-for (btn of allBtns) {
-    btn.addEventListener("click", btnPress);
-    btn.addEventListener("touchstart", btnPress); 
-    btn.addEventListener("pointerdown", btnPress); 
-}
+allBtns.forEach(btn => {
+  if( isTouchDevice){
+    btn.addEventListener("touchstart", btnPress,{ passive : false});
+    btn.addEventListener("touchend",e => e.preventDefault(), { passive : false});
+  }
+  else{
+    btn.addEventListener("click",btnPress);
+  }
+  
+});
