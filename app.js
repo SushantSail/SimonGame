@@ -22,41 +22,32 @@ startBtn.addEventListener("click",function(){
 });
 
 // Add a class flass to button which was trigged by levelUp function
-function btnPress(){
-    event.preventDefault();
-    if (this.disabled) return;  // Prevent touch if buttons are disabled during sequence flash
-
-    let btn = this;
-    let bn = btns[btn.innerText - 1];
-    userSeq.push(bn);
-    checkAns(userSeq.length - 1);
+function btnFlash(btn){
+btn.classList.add("flash");
+setTimeout(function(){
+    btn.classList.remove("flash");
+},500);
 }
 
 function flashSequence(){
-    let i=0;
-    // Disable button interactions during the flashing
-    allBtns.forEach(btn => btn.disabled = true);
-    const interval = setInterval(function(){
-        const color = gameSeq[i];
-        const btn = document.querySelector(`.${color}`);
-        btnFlash(btn);
-        i++;
-        if(i >= gameSeq.length){
-            clearInterval(interval);
-            // Re-enable button interactions after flashing
-            allBtns.forEach(btn => btn.disabled = false);
-        }
-    }, 600);
+  let i=0;
+  const interval=setInterval(function(){
+    const color = gameSeq[i];
+    const btn =document.querySelector(`.${color}`);
+    btnFlash(btn);
+    i++;
+    if(i>= gameSeq.length){
+      clearInterval(interval);
+    }
+  },600);
 }
-
 
 // Trigreed the random colour and pass in btnFlash function
 function levelUp(){
   userSeq=[];
 level++
 h2.innerText =`Level ${level}`;
-    startBtn.innerText = `Level ${level}`; // Update this during level-up.
-
+startBtn.innerText=`Level ${level}`;
 
 let randIdx =Math.floor(Math.random()*3);
 let randColor =btns[randIdx];
@@ -99,7 +90,6 @@ function checkAns(idx){
     }
     backgroundFlash();
     startBtn.innerText="START";
-      
     reset();
   }
 }
