@@ -1,3 +1,4 @@
+
 let gameSeq = [];
 let userSeq = [];
 
@@ -125,8 +126,7 @@ let allBtns = document.querySelectorAll(".btn");
 allBtns.forEach(btn => {
   if( isTouchDevice){
     btn.addEventListener("touchstart", btnPress,{ passive : false});
-    btn.addEventListener("touchend",e => e.preventDefault(), { passive : false});
-  }
+   }
   else{
     btn.addEventListener("click",btnPress);
   }
